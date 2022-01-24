@@ -1,42 +1,11 @@
+from posixpath import split
 import pytest
+from leapyear import leapyear
+from leapyear_unittest import test_cases
 
 
-def leapyear(number: int) -> bool:
-    if not (number % 400):
-        return True
-
-    if not (number % 100):
-        return False
-
-    if not (number % 4):
-        return True
-    return False
-
-
-class TestLeapYearClass:
-    def test_is_not_leapyear_when_input_is_1(self):
-        assert leapyear(1) == False
-
-    def test_is_leapyear_when_input_is_4(self):
-        assert leapyear(4) == True
-
-    def test_is_not_leapyear_when_input_is_5(self):
-        assert leapyear(5) == False
-
-    def test_is_leapyear_when_input_is_8(self):
-        assert leapyear(8) == True
-
-    def test_is_not_leapyear_when_input_is_100(self):
-        assert leapyear(100) == False
-
-    def test_is_leapyear_when_input_is_120(self):
-        assert leapyear(120) == True
-
-    def test_is_not_leapyear_when_input_is_200(self):
-        assert leapyear(200) == False
-
-    def test_is_leapyear_when_input_is_400(self):
-        assert leapyear(400) == True
-
-    def test_is_leapyear_when_input_is_800(self):
-        assert leapyear(800) == True
+class TestLeapYear:
+    @pytest.mark.parametrize(["year", "expected_result"], test_cases)
+    def test_is_leapyear(self, year, expected_result):
+        actual_result = leapyear(year)
+        assert actual_result == expected_result
