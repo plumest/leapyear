@@ -2,7 +2,10 @@ import pytest
 
 
 def leapyear(number: int) -> bool:
-    if number % 100 == 0:
+    if number == 400:
+        return True
+
+    if not (number % 100):
         return False
 
     if not (number % 4):
@@ -31,3 +34,6 @@ class TestLeapYearClass:
 
     def test_is_not_leapyear_when_input_is_200(self):
         assert leapyear(200) == False
+
+    def test_is_leapyear_when_input_is_400(self):
+        assert leapyear(400) == True
