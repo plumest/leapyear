@@ -2,7 +2,7 @@ import pytest
 
 
 def leapyear(number: int) -> bool:
-    if number == 100:
+    if number % 100 == 0:
         return False
 
     if not (number % 4):
