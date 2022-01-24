@@ -3,7 +3,7 @@
 import unittest
 from leapyear import leapyear
 
-test_cases = [(1, False), (4, True), (5, False),
+test_cases = [(0, True), (1, False), (4, True), (5, False),
               (8, True), (100, False), (120, True),
               (200, False), (400, True), (800, True)]
 
