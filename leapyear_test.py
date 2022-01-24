@@ -25,3 +25,6 @@ class TestLeapYearClass:
 
     def test_is_not_leapyear_when_input_is_100(self):
         assert leapyear(100) == False
+
+    def test_is_leapyear_when_input_is_120(self):
+        assert leapyear(120) == True
