@@ -2,7 +2,7 @@ import pytest
 
 
 def leapyear(number: int) -> bool:
-    if number == 4:
+    if number % 4 == 0:
         return True
     return False
 
@@ -16,3 +16,6 @@ class TestLeapYearClass:
 
     def test_leapyear_when_input_is_5(self):
         assert leapyear(5) == False
+
+    def test_leapyear_when_input_is_8(self):
+        assert leapyear(8) == True
